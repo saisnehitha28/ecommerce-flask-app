@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Orders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>📦 My Orders</h1>
+
+{% if orders %}
+
+{% for order in orders %}
+
+<div class="order-card">
+    <h3>👤 {{ order.user }}</h3>
+    <p><strong>Status:</strong> {{ order.status }}</p>
+    <p><strong>Tracking ID:</strong> ORD{{ loop.index }}2026</p>
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="order-card">
+    <h3>No Orders Yet</h3>
+</div>
+
+{% endif %}
+
+<br>
+
+<center>
+<a href="/">
+<button>Continue Shopping</button>
+</a>
+</center>
+
+</body>
+</html>
